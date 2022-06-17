@@ -12,7 +12,7 @@ app.use(cors({ origin: ['http://localhost:5000', 'http://127.0.0.1:5000'] }));
 
 app.listen(5000, (error) => {
     if (error) console.error(error);
-    else console.log(`Server is running on port ${PORT}`);
+    else console.log(`Server is running on port ${PORT}`); 
   });
 
 const PORT = process.env.PORT || 5000;
