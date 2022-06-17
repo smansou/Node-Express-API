@@ -1,4 +1,3 @@
- const dbPath = '/Users/sobhi/Fullstack Bootcamp/NodeJS-Express/Node-Express-API/db/';
 
-
+ const dbPath = process.env.DB_PATH;
  module.exports = {dbPath};

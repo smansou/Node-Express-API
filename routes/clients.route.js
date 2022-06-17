@@ -1,4 +1,4 @@
-// const {updateCash, updateCredit, transferFunds, getAllAccounts} = require('./services/accountFunctions')
+// const {updateCash, updateCredit, transferFunds, getAllAccounts} = require('./controllers/accountFunctions')
 const express = require('express');
 const router = express.Router();
 

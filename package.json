@@ -18,6 +18,7 @@
   "homepage": "https://github.com/smansou/Node-Express-API#readme",
   "dependencies": {
     "cors": "^2.8.5",
+    "dotenv": "^16.0.1",
     "uniqid": "^5.4.0"
   }
 }

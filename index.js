@@ -1,9 +1,9 @@
 
 const express = require('express');
-const {updateCash, updateCredit, transferFunds, getAllAccounts} = require('./services/accountFunctions');
+require('dotenv').config();
 // const bp = require('bodyParser');
-const accountsRoute = require('/Users/sobhi/Fullstack Bootcamp/NodeJS-Express/Node-Express-API/routes/accounts.route');
-const clientsRoute = require('/Users/sobhi/Fullstack Bootcamp/NodeJS-Express/Node-Express-API/routes/clients.route');
+const accountsRoute = require(`${process.env.DIR_PATH}/routes/accounts.route`);
+const clientsRoute = require(`${process.env.DIR_PATH}/routes/clients.route`);
 const app = express();
 app.use(express.json());       // to support JSON-encoded bodies
 app.use(express.urlencoded({extended:true})); // to support URL-encoded bodies
