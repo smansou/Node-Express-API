@@ -1,0 +1,23 @@
+{
+  "name": "node-express-api",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/smansou/Node-Express-API.git"
+  },
+  "author": "Sobhi Mansour",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/smansou/Node-Express-API/issues"
+  },
+  "homepage": "https://github.com/smansou/Node-Express-API#readme",
+  "dependencies": {
+    "cors": "^2.8.5",
+    "uniqid": "^5.4.0"
+  }
+}
