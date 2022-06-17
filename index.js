@@ -1,7 +1,6 @@
 
 const express = require('express');
 require('dotenv').config();
-// const bp = require('bodyParser');
 const accountsRoute = require(`${process.env.DIR_PATH}/routes/accounts.route`);
 const clientsRoute = require(`${process.env.DIR_PATH}/routes/clients.route`);
 const app = express();
