@@ -2,11 +2,9 @@ const fs = require('fs');
 const dirname = require('path');
 const Account = require('../models/Account');
 const { incDecBalance } = require('../utils/utils');
-const  dbPath  = process.cwd()+'/db/';
+const dbPath = process.cwd() + '/db/';
 const accountsDB = dbPath + 'accounts.json';
 const accounts = JSON.parse(fs.readFileSync(accountsDB, 'utf-8'));
-
-
 
 
 async function createAccount(req, res, next) {
@@ -22,6 +20,7 @@ async function createAccount(req, res, next) {
 }
 
 async function deleteAccount(req, res, next) {
+
     const modified = accounts.filter(account => account.accountId != req.params.id);
     fs.writeFileSync(accountsDB, JSON.stringify(modified), 'utf-8');
     try {
@@ -98,20 +97,22 @@ async function updateCredit(req, res, next) {
 async function transferFunds(req, res, next) {
     senderIndex = accounts.findIndex((account) => account.accountId === req.body.senderId);
     recieverIndex = accounts.findIndex((account) => account.accountId === req.body.recieverId);
-    if(senderIndex!=-1 && recieverIndex!=-1){
-    if (accounts[senderIndex].balance >= req.body.amount) {
-        incDecBalance(req.body.senderId, req.body.amount * (-1));
-        incDecBalance(req.body.recieverId, req.body.amount);
+    if (senderIndex != -1 && recieverIndex != -1) {
+        if (accounts[senderIndex].balance >= req.body.amount) {
+            incDecBalance(req.body.senderId, req.body.amount * (-1));
+            incDecBalance(req.body.recieverId, req.body.amount);
 
-        try {
-            res.send(`Success. transferred ${req.body.amount} from ${req.body.senderId} to ${req.body.recieverId}.`);
-        } catch (err) {
-            next(err);
+            try {
+                res.send(`Success. transferred ${req.body.amount} from ${req.body.senderId} to ${req.body.recieverId}.`);
+            } catch (err) {
+                next(err);
+            }
+        } else {
+            res.status(400).send('insuffecient funds');
         }
     } else {
-        res.status(400).send('insuffecient funds');
+        res.status(404).send(`account not found`)
     }
-} else { res.status(404).send(`account not found`) }
 }
 
 module.exports = {
