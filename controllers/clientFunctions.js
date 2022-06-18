@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const { dbPath } = require('../config');
+const  dbPath  = process.cwd()+'/db/';
 const clientsDB = dbPath + 'clients.json';
 const clients = JSON.parse(fs.readFileSync(clientsDB, 'utf-8'));
 const Client = require('../models/Client');

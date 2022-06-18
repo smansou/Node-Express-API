@@ -1,10 +1,10 @@
 const fs = require('fs');
 const dirname = require('path');
-const { dbPath } = require('../config');
 const Account = require('../models/Account');
+const { incDecBalance } = require('../utils/utils');
+const  dbPath  = process.cwd()+'/db/';
 const accountsDB = dbPath + 'accounts.json';
 const accounts = JSON.parse(fs.readFileSync(accountsDB, 'utf-8'));
-const { incDecBalance } = require('../utils/utils');
 
 
 
