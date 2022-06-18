@@ -20,7 +20,10 @@
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.0.1",
-    "uniqid": "^5.4.0"
+    "uniqid": "^5.4.0",
+    "express":"*",
+    "body-parser":"*",
+    "bcrypt": "^0.8.5"
   },
   "engines": {
     "node": "16.14.0"
