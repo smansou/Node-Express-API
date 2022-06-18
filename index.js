@@ -9,12 +9,12 @@ app.use(express.urlencoded({extended:true})); // to support URL-encoded bodies
 const cors = require('cors');
 app.use(cors({ origin: ['http://localhost:5000', 'http://127.0.0.1:5000'] }));
 
-app.listen(5000, (error) => {
+const PORT = process.env.PORT || 5000;
+app.listen(PORT, (error) => {
     if (error) console.error(error);
     else console.log(`Server is running on port ${PORT}`); 
   });
 
-const PORT = process.env.PORT || 5000;
 
 app.use('/clients', clientsRoute);
 app.use('/accounts', accountsRoute);
