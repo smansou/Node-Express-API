@@ -20,14 +20,18 @@ async function createAccount(req, res, next) {
 }
 
 async function deleteAccount(req, res, next) {
-
+    const exists = accounts.find(account => account.accountId === req.params.id);
     const modified = accounts.filter(account => account.accountId != req.params.id);
-    fs.writeFileSync(accountsDB, JSON.stringify(modified), 'utf-8');
-    try {
-        res.status(200).send(`Account ${req.params.id} deleted successfully`);
-    }
-    catch (err) {
-        next(err);
+    if (exists) {
+        fs.writeFileSync(accountsDB, JSON.stringify(modified), 'utf-8');
+        try {
+            res.status(200).send(`Account ${req.params.id} deleted successfully`);
+        }
+        catch (err) {
+            next(err);
+        }
+    } else {
+        res.status(404).send('account not found');
     }
 }
 
