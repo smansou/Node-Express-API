@@ -18,3 +18,6 @@ app.listen(PORT, (error) => {
 
 app.use('/clients', clientsRoute);
 app.use('/accounts', accountsRoute);
+app.get('/', (req, res, next)=>{
+  res.send("homepage");
+})
