@@ -1,11 +1,12 @@
-// const {updateCash, updateCredit, transferFunds, getAllAccounts} = require('./controllers/accountFunctions')
+const {deleteClient, getAllClients, getClient, createClient} = require('../controllers/clientFunctions')
 const express = require('express');
 const router = express.Router();
 
-router.get('/', (req, res, next)=>{
-    res.status(200).send('hi');
-    next();
-})
+router.get('/', getAllClients);
+router.get('/:id', getClient);
+router.post('/', createClient);
+router.delete('/:id', deleteClient);
+
 
 module.exports = router;
 
