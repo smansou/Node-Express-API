@@ -1,6 +1,6 @@
 
 const fs = require('fs');
-const { dbPath } = require('../config');
+const dbPath = process.cwd()+'/db/';
 const accountsDB = dbPath + 'accounts.json';
 const accounts = JSON.parse(fs.readFileSync(accountsDB, 'utf-8'));
 
