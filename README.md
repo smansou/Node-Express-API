@@ -14,7 +14,7 @@ method: get('/:id')
 
 * ### Create new account (body)
 ```
-method: post
+method: post('/')
 body: account owner ID (owner: XXXXXXXXXXX)
 ```
 
@@ -30,7 +30,7 @@ body: {
    accountId: XXXXXXXXX,
   amount: XXXXX.XXX
    }
-- positive amount for increment. Negative numbers for decrement.
+- positive amount for increment. Negative amount for decrement.
 ```
 * ### Update credit by accountId & amount (body)
 ```
@@ -42,7 +42,10 @@ body: {accountId: XXXXXXXXX, amount: XXXX}
 * ### Transfer cash by senderId, recieverId & amount (body)
 ```
 method: patch('/transfer');
-body: {senderId: XXXXXXXXX, recieverId: XXXXXXXXX amount: XXXX}
+body: {
+    senderId: XXXXXXXXX,
+    recieverId: XXXXXXXXX
+    amount: XXXX}
 ```
 
 
