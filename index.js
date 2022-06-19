@@ -15,9 +15,8 @@ app.listen(PORT, (error) => {
     else console.log(`Server is running on port ${PORT}`); 
   }); 
 
-
 app.use('/clients', clientsRoute);
 app.use('/accounts', accountsRoute);
 app.get('/', (req, res, next)=>{
-  res.send("homepage");
+  res.send('API Homepage');
 })
