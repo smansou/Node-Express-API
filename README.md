@@ -13,6 +13,7 @@ method: get('/:id')
 ```
 
 * ### Create new account (body)
+
 ```
 method: post('/')
 body: {
